@@ -1,0 +1,121 @@
+---
+layout: base.njk
+title: "Home"
+description: "Custom guitar work from a player's perspective. Repair, rebuilds, hand-wound pickups, and acoustic builds."
+---
+
+<!-- HERO -->
+<section class="hero hero--home">
+  <div class="hero__overlay"></div>
+  <div class="hero__content container">
+    <h1 class="hero__heading">Green Customs</h1>
+    <p class="hero__sub">Custom guitar work from a player's perspective.</p>
+    <div class="hero__actions">
+      <a href="/shop/" class="btn btn--primary btn--lg">Browse the Shop</a>
+      <a href="/service-request/" class="btn btn--outline-light btn--lg">Request a Service</a>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED LISTINGS -->
+<section class="section featured-listings">
+  <div class="container">
+    <h2 class="section__heading">Currently Available</h2>
+    <div class="product-carousel" id="featured-carousel">
+      {% for product in collections.products %}
+        {% if product.data.featured and product.data.available %}
+          <article class="product-card" data-category="{{ product.data.category }}">
+            <a href="{{ product.url }}" class="product-card__image-link">
+              <div class="product-card__image-wrap">
+                <img src="{{ product.data.image }}" alt="{{ product.data.title }}" loading="lazy">
+                <span class="badge badge--available">Available</span>
+              </div>
+            </a>
+            <div class="product-card__body">
+              <span class="category-tag">{{ product.data.category | replace("-", " ") | title }}</span>
+              <h3 class="product-card__title">
+                <a href="{{ product.url }}">{{ product.data.title }}</a>
+              </h3>
+              <p class="product-card__excerpt">{{ product.data.excerpt }}</p>
+              <div class="product-card__footer">
+                <span class="product-card__price">{{ product.data.price }}</span>
+                <a href="{{ product.url }}" class="btn btn--sm btn--outline">View Details</a>
+              </div>
+            </div>
+          </article>
+        {% endif %}
+      {% endfor %}
+    </div>
+    <div class="section__cta">
+      <a href="/shop/" class="btn btn--primary">View All Listings</a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES STRIP -->
+<section class="section services-strip">
+  <div class="container">
+    <h2 class="section__heading section__heading--light">What We Do</h2>
+    <div class="services-grid">
+
+      <a href="/repairs/" class="service-card">
+        <div class="service-card__icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+        </div>
+        <h3>Repair &amp; Restoration</h3>
+        <p>Fret work, setups, crack repair, electronics — get your guitar playing its best again.</p>
+      </a>
+
+      <a href="/rebuilds/" class="service-card">
+        <div class="service-card__icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+        </div>
+        <h3>Electric Rebuilds</h3>
+        <p>Import electrics transformed — all-new electronics, hardware, and setup. Near US build quality for less.</p>
+      </a>
+
+      <a href="/pickups/" class="service-card">
+        <div class="service-card__icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+        </div>
+        <h3>Side Quest Pickups</h3>
+        <p>Hand-wound one at a time in the workshop. Singles, P-90 style, and more — plus pickup repair.</p>
+      </a>
+
+      <a href="/acoustics/" class="service-card">
+        <div class="service-card__icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+        </div>
+        <h3>Acoustic Builds</h3>
+        <p>Hand-building acoustics from scratch — a new chapter just getting underway. Coming soon.</p>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT BLURB -->
+<section class="section about-blurb">
+  <div class="container about-blurb__inner">
+    <div class="about-blurb__text">
+      <h2>Built by a Player, for Players</h2>
+      <!-- TODO: owner to update -->
+      <p>Green Customs is a one-person guitar workshop run by Chris Schryer out of his home shop. Chris has been playing guitar for over two decades and got into repair and building the way most luthiers do — by refusing to pay shop rates and figuring it out himself.</p>
+      <p>Today the shop handles everything from basic setups and fret work to full electronic rebuilds, hand-wound pickups under the Side Quest Pickups name, and the early stages of hand-building acoustic guitars from scratch.</p>
+      <p>Every instrument that comes through gets the same attention whether it's a $200 import or a vintage piece worth real money. The goal is always the same: make it play and sound as good as it possibly can.</p>
+      <a href="/about/" class="btn btn--primary">More About Us</a>
+    </div>
+    <div class="about-blurb__image">
+      <img src="/images/IMG_1585.jpeg" alt="Guitar in the workshop" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- INSTAGRAM TEASER -->
+<section class="section instagram-teaser">
+  <div class="container instagram-teaser__inner">
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+    <p>Follow the work in progress on Instagram</p>
+    <a href="{{ site.instagram_url }}" target="_blank" rel="noopener" class="btn btn--outline">@{{ site.instagram_business }}</a>
+  </div>
+</section>

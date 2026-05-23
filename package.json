@@ -1,0 +1,25 @@
+{
+  "name": "greencustoms",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx @11ty/eleventy --serve",
+    "build": "npx @11ty/eleventy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/erikasboy/GreenCustoms.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/erikasboy/GreenCustoms/issues"
+  },
+  "homepage": "https://github.com/erikasboy/GreenCustoms#readme",
+  "dependencies": {
+    "@11ty/eleventy": "^3.1.5"
+  }
+}

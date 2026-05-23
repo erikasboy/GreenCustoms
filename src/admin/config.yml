@@ -1,0 +1,83 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/images"
+public_folder: "/images"
+
+collections:
+  - name: "products"
+    label: "Products"
+    folder: "src/content/products"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options:
+          - { label: "Rebuilt Electrics", value: "rebuilt-electrics" }
+          - { label: "Side Quest Pickups", value: "side-quest-pickups" }
+          - { label: "Acoustic Guitars", value: "acoustic-guitars" }
+      - { label: "Price (e.g. $349 CAD)", name: "price", widget: "string" }
+      - { label: "Available for Sale", name: "available", widget: "boolean", default: true }
+      - { label: "Featured on Homepage", name: "featured", widget: "boolean", default: false }
+      - { label: "Product Image", name: "image", widget: "image" }
+      - { label: "Short Description (for cards)", name: "excerpt", widget: "string" }
+      - { label: "Full Description", name: "body", widget: "markdown" }
+
+  - name: "pages"
+    label: "Pages"
+    files:
+      - label: "Repair & Restoration"
+        name: "repairs"
+        file: "src/content/pages/repairs.md"
+        fields:
+          - { label: "Page Title", name: "title", widget: "string" }
+          - { label: "SEO Description", name: "description", widget: "string" }
+          - { label: "Hero Image", name: "hero_image", widget: "image" }
+          - { label: "Hero Heading", name: "hero_heading", widget: "string" }
+          - { label: "Hero Subheading", name: "hero_sub", widget: "string", required: false }
+          - { label: "Page Content", name: "body", widget: "markdown" }
+
+      - label: "Electric Rebuilds"
+        name: "rebuilds"
+        file: "src/content/pages/rebuilds.md"
+        fields:
+          - { label: "Page Title", name: "title", widget: "string" }
+          - { label: "SEO Description", name: "description", widget: "string" }
+          - { label: "Hero Image", name: "hero_image", widget: "image" }
+          - { label: "Hero Heading", name: "hero_heading", widget: "string" }
+          - { label: "Hero Subheading", name: "hero_sub", widget: "string", required: false }
+          - { label: "Page Content", name: "body", widget: "markdown" }
+
+      - label: "Side Quest Pickups"
+        name: "pickups"
+        file: "src/content/pages/pickups.md"
+        fields:
+          - { label: "Page Title", name: "title", widget: "string" }
+          - { label: "SEO Description", name: "description", widget: "string" }
+          - { label: "Hero Image", name: "hero_image", widget: "image" }
+          - { label: "Hero Heading", name: "hero_heading", widget: "string" }
+          - { label: "Hero Subheading", name: "hero_sub", widget: "string", required: false }
+          - { label: "Page Content", name: "body", widget: "markdown" }
+
+      - label: "About"
+        name: "about"
+        file: "src/content/pages/about.md"
+        fields:
+          - { label: "Page Title", name: "title", widget: "string" }
+          - { label: "SEO Description", name: "description", widget: "string" }
+          - { label: "Hero Heading", name: "hero_heading", widget: "string" }
+          - { label: "Page Content", name: "body", widget: "markdown" }
+
+      - label: "Acoustic Builds"
+        name: "acoustics"
+        file: "src/content/pages/acoustics.md"
+        fields:
+          - { label: "Page Title", name: "title", widget: "string" }
+          - { label: "SEO Description", name: "description", widget: "string" }
+          - { label: "Hero Heading", name: "hero_heading", widget: "string" }
+          - { label: "Hero Subheading", name: "hero_sub", widget: "string", required: false }
+          - { label: "Page Content", name: "body", widget: "markdown" }

@@ -1,0 +1,83 @@
+---
+layout: base.njk
+title: "Contact"
+description: "Get in touch with Green Customs — guitar repair, rebuilds, and hand-wound pickups."
+---
+
+<section class="page-hero page-hero--short page-hero--dark">
+  <div class="container">
+    <h1>Get in Touch</h1>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container contact-layout">
+
+    <div class="contact-form-col">
+      <h2>Send a Message</h2>
+      <form
+        name="contact"
+        method="POST"
+        action="/thank-you/"
+        netlify
+        netlify-honeypot="bot-field"
+        class="form"
+      >
+        <input type="hidden" name="form-name" value="contact">
+        <p hidden><label>Don't fill this out: <input name="bot-field"></label></p>
+
+        <div class="form-group">
+          <label for="name">Name <span class="required">*</span></label>
+          <input type="text" id="name" name="name" required autocomplete="name">
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email <span class="required">*</span></label>
+          <input type="email" id="email" name="email" required autocomplete="email">
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message <span class="required">*</span></label>
+          <textarea id="message" name="message" rows="6" required placeholder="What can we help you with?"></textarea>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn--primary btn--lg">Send Message</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="contact-info-col">
+      <h2>Other Ways to Reach Us</h2>
+      <ul class="contact-list">
+        <li class="contact-list__item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          <div>
+            <span class="contact-list__label">Business</span>
+            <a href="https://instagram.com/{{ site.instagram_business }}" target="_blank" rel="noopener">@{{ site.instagram_business }}</a>
+          </div>
+        </li>
+        <li class="contact-list__item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          <div>
+            <span class="contact-list__label">Personal</span>
+            <a href="https://instagram.com/{{ site.instagram_personal }}" target="_blank" rel="noopener">@{{ site.instagram_personal }}</a>
+          </div>
+        </li>
+        <li class="contact-list__item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <div>
+            <span class="contact-list__label">Email</span>
+            <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+          </div>
+        </li>
+      </ul>
+
+      <div class="contact-service-cta">
+        <p>Got an instrument that needs work? Use the service request form for the fastest response.</p>
+        <a href="/service-request/" class="btn btn--outline">Request a Service →</a>
+      </div>
+    </div>
+
+  </div>
+</section>

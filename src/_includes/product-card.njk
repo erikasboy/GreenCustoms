@@ -1,0 +1,25 @@
+{% macro productCard(product) %}
+<article class="product-card" data-category="{{ product.data.category }}">
+  <a href="{{ product.url }}" class="product-card__image-link">
+    <div class="product-card__image-wrap">
+      <img src="{{ product.data.image }}" alt="{{ product.data.title }}" loading="lazy">
+      {% if product.data.available %}
+        <span class="badge badge--available">Available</span>
+      {% else %}
+        <span class="badge badge--sold">Sold</span>
+      {% endif %}
+    </div>
+  </a>
+  <div class="product-card__body">
+    <span class="category-tag">{{ product.data.category | replace("-", " ") | title }}</span>
+    <h3 class="product-card__title">
+      <a href="{{ product.url }}">{{ product.data.title }}</a>
+    </h3>
+    <p class="product-card__excerpt">{{ product.data.excerpt }}</p>
+    <div class="product-card__footer">
+      <span class="product-card__price">{{ product.data.price }}</span>
+      <a href="{{ product.url }}" class="btn btn--sm btn--outline">View Details</a>
+    </div>
+  </div>
+</article>
+{% endmacro %}

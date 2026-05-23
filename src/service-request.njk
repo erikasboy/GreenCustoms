@@ -1,0 +1,90 @@
+---
+layout: base.njk
+title: "Request a Service"
+description: "Request a guitar repair, rebuild, or pickup service from Green Customs."
+---
+
+<section class="page-hero page-hero--short page-hero--dark">
+  <div class="container">
+    <h1>Request a Service</h1>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container content-narrow">
+
+    <p class="lead">Fill out the form below and Chris will get back to you within 1–2 business days.<!-- TODO: adjust --></p>
+
+    <form
+      name="service-request"
+      method="POST"
+      action="/thank-you/"
+      netlify
+      netlify-honeypot="bot-field"
+      class="form"
+    >
+      <input type="hidden" name="form-name" value="service-request">
+      <p hidden><label>Don't fill this out: <input name="bot-field"></label></p>
+
+      <div class="form-row form-row--two">
+        <div class="form-group">
+          <label for="name">Name <span class="required">*</span></label>
+          <input type="text" id="name" name="name" required autocomplete="name">
+        </div>
+        <div class="form-group">
+          <label for="email">Email <span class="required">*</span></label>
+          <input type="email" id="email" name="email" required autocomplete="email">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone <span class="optional">(optional)</span></label>
+        <input type="tel" id="phone" name="phone" autocomplete="tel">
+      </div>
+
+      <div class="form-group">
+        <label for="service-type">Service Type <span class="required">*</span></label>
+        <select id="service-type" name="service-type" required>
+          <option value="" disabled selected>Select a service…</option>
+          <option value="repair-restoration">Repair or Restoration</option>
+          <option value="pickup-repair">Pickup Repair / Rewind</option>
+          <option value="electric-rebuild">Electric Rebuild Quote</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+
+      <fieldset class="form-fieldset">
+        <legend>Instrument</legend>
+        <div class="form-row form-row--three">
+          <div class="form-group">
+            <label for="instrument-brand">Brand</label>
+            <input type="text" id="instrument-brand" name="instrument-brand" placeholder="e.g. Fender, Gibson">
+          </div>
+          <div class="form-group">
+            <label for="instrument-model">Model</label>
+            <input type="text" id="instrument-model" name="instrument-model" placeholder="e.g. Telecaster, Les Paul">
+          </div>
+          <div class="form-group">
+            <label for="instrument-year">Approx. Year</label>
+            <input type="text" id="instrument-year" name="instrument-year" placeholder="e.g. 2018">
+          </div>
+        </div>
+      </fieldset>
+
+      <div class="form-group">
+        <label for="description">Description of work needed <span class="required">*</span></label>
+        <textarea id="description" name="description" rows="6" required placeholder="Describe what's going on with your instrument and what you're hoping to get done…"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="referral">How did you hear about us? <span class="optional">(optional)</span></label>
+        <input type="text" id="referral" name="referral" placeholder="Instagram, friend referral, etc.">
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="btn btn--primary btn--lg">Send Request</button>
+      </div>
+
+    </form>
+  </div>
+</section>

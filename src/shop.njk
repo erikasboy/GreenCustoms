@@ -1,0 +1,68 @@
+---
+layout: base.njk
+title: "Shop"
+description: "Browse available rebuilt electrics and hand-wound pickups from Green Customs."
+---
+
+<section class="page-hero page-hero--short page-hero--dark">
+  <div class="container">
+    <h1>Shop</h1>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <!-- Category Filter Tabs -->
+    <div class="filter-tabs" role="tablist" aria-label="Filter by category">
+      <button class="filter-tab active" data-filter="all" role="tab" aria-selected="true">All</button>
+      <button class="filter-tab" data-filter="rebuilt-electrics" role="tab" aria-selected="false">Rebuilt Electrics</button>
+      <button class="filter-tab" data-filter="side-quest-pickups" role="tab" aria-selected="false">Side Quest Pickups</button>
+      <button class="filter-tab" data-filter="acoustic-guitars" role="tab" aria-selected="false">Acoustic Guitars</button>
+    </div>
+
+    <!-- Acoustic Coming Soon Message (hidden by default, shown when acoustic tab active) -->
+    <div class="acoustic-coming-soon" id="acoustic-coming-soon" hidden>
+      <div class="coming-soon-card">
+        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+        <h2>Acoustic Guitars — Coming Soon</h2>
+        <p>Chris is hand-building acoustic guitars from scratch. The first instruments are underway — check back soon, or get in touch to express your interest.</p>
+        <a href="/acoustics/" class="btn btn--primary">Learn More</a>
+      </div>
+    </div>
+
+    <!-- Product Grid -->
+    <div class="product-grid" id="product-grid">
+      {% for product in collections.products %}
+        <article class="product-card" data-category="{{ product.data.category }}">
+          <a href="{{ product.url }}" class="product-card__image-link">
+            <div class="product-card__image-wrap">
+              <img src="{{ product.data.image }}" alt="{{ product.data.title }}" loading="lazy">
+              {% if product.data.available %}
+                <span class="badge badge--available">Available</span>
+              {% else %}
+                <span class="badge badge--sold">Sold</span>
+              {% endif %}
+            </div>
+          </a>
+          <div class="product-card__body">
+            <span class="category-tag">{{ product.data.category | replace("-", " ") | title }}</span>
+            <h2 class="product-card__title">
+              <a href="{{ product.url }}">{{ product.data.title }}</a>
+            </h2>
+            <p class="product-card__excerpt">{{ product.data.excerpt }}</p>
+            <div class="product-card__footer">
+              <span class="product-card__price">{{ product.data.price }}</span>
+              <a href="{{ product.url }}" class="btn btn--sm btn--outline">View Details</a>
+            </div>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+
+    {% if collections.products.length == 0 %}
+      <p class="empty-state">No listings right now — check back soon or <a href="/contact/">get in touch</a>.</p>
+    {% endif %}
+
+  </div>
+</section>

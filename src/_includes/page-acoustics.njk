@@ -1,0 +1,22 @@
+---
+layout: base.njk
+---
+
+<section class="page-hero page-hero--dark">
+  <div class="container">
+    <h1>{{ hero_heading if hero_heading else title }}</h1>
+    {% if hero_sub %}<p>{{ hero_sub }}</p>{% endif %}
+  </div>
+</section>
+
+<section class="section">
+  <div class="container content-narrow">
+    <div class="coming-soon-badge">Coming Soon</div>
+    <div class="prose">
+      {{ content | safe }}
+    </div>
+    <div class="content-cta">
+      <a href="/contact/" class="btn btn--primary btn--lg">Get in Touch</a>
+    </div>
+  </div>
+</section>

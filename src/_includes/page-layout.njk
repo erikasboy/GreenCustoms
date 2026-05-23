@@ -1,0 +1,37 @@
+---
+layout: base.njk
+---
+
+{% if hero_image %}
+<section class="page-hero page-hero--image" style="--hero-image: url('{{ hero_image }}')">
+  <div class="hero__overlay"></div>
+  <div class="container page-hero__content">
+    <h1>{{ hero_heading if hero_heading else title }}</h1>
+    {% if hero_sub %}<p>{{ hero_sub }}</p>{% endif %}
+  </div>
+</section>
+{% else %}
+<section class="page-hero page-hero--dark">
+  <div class="container">
+    <h1>{{ hero_heading if hero_heading else title }}</h1>
+    {% if hero_sub %}<p>{{ hero_sub }}</p>{% endif %}
+  </div>
+</section>
+{% endif %}
+
+<section class="section">
+  <div class="container content-narrow">
+    <div class="prose">
+      {{ content | safe }}
+    </div>
+
+    {% if cta_primary_label %}
+    <div class="content-cta {% if cta_secondary_label %}content-cta--split{% endif %}">
+      <a href="{{ cta_primary_url }}" class="btn btn--primary btn--lg">{{ cta_primary_label }}</a>
+      {% if cta_secondary_label %}
+      <a href="{{ cta_secondary_url }}" class="btn btn--outline btn--lg">{{ cta_secondary_label }}</a>
+      {% endif %}
+    </div>
+    {% endif %}
+  </div>
+</section>

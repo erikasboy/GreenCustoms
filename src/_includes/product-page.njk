@@ -1,0 +1,62 @@
+---
+layout: base.njk
+---
+<article class="product-single">
+
+  <div class="product-single__hero">
+    <img src="{{ image }}" alt="{{ title }}" class="product-single__hero-img">
+  </div>
+
+  <div class="container product-single__layout">
+
+    <div class="product-single__main">
+      <span class="category-tag">{{ category | replace("-", " ") | title }}</span>
+      <h1 class="product-single__title">{{ title }}</h1>
+      <p class="product-single__price">{{ price }}</p>
+
+      {% if available %}
+        <span class="badge badge--available badge--lg">Available</span>
+      {% else %}
+        <span class="badge badge--sold badge--lg">Sold</span>
+      {% endif %}
+
+      <div class="product-single__description">
+        {{ content | safe }}
+      </div>
+    </div>
+
+    <aside class="product-single__sidebar">
+
+      <div class="buy-box">
+        <h2 class="buy-box__heading">How to Buy</h2>
+
+        {% if available %}
+          <div class="buy-box__option">
+            <h3>Pay with PayPal</h3>
+            <p>Fast, secure checkout via PayPal.</p>
+            <a href="https://{{ site.paypal }}" target="_blank" rel="noopener" class="btn btn--primary btn--block">
+              <!-- TODO: owner to fill in PayPal.me handle -->
+              Pay via PayPal
+            </a>
+          </div>
+
+          <div class="buy-box__divider">or</div>
+
+          <div class="buy-box__option">
+            <h3>Interac e-Transfer <span class="badge badge--available">Canadians</span></h3>
+            <p>Send an Interac e-Transfer to <strong>{{ site.email }}</strong> and include <em>{{ title }}</em> in the message.</p>
+          </div>
+
+          <div class="buy-box__option">
+            <p class="buy-box__questions">Questions? <a href="/contact/">Get in touch</a> — happy to help.</p>
+          </div>
+        {% else %}
+          <p class="buy-box__sold-msg">This item has sold. <a href="/shop/">Browse available items →</a></p>
+        {% endif %}
+      </div>
+
+    </aside>
+
+  </div>
+
+</article>
